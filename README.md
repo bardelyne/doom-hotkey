@@ -10,6 +10,10 @@ The one-file build includes Crispy Doom 7.2.0 and both Freedoom campaigns. Impor
 
 Use **Game WAD** to play your own DOOM.WAD or DOOM2.WAD with the bundled engine. Freedoom provides the bundled levels, graphics, sounds, and music.
 
+The engine and unpacked game data are in `%LOCALAPPDATA%\Windhawk Doom\Runtime`. Settings and per-game saves are in `%LOCALAPPDATA%\Windhawk Doom\Profile`. Close the game before removing the Runtime folder to reclaim space. The mod recreates it on demand.
+
+On upgrade from v0.3.1, the mod copies the old configuration and backs up the old shared save slots under `Profile\Legacy Saves`. Copy the slots you want to keep playing into the matching game folder under `Profile\Saves`. The original files remain in the old versioned folder.
+
 ## Build the one-file mod
 
 Use Python 3.11 or later on Windows. Create a `playable` folder next to this README and save these two release archives there with their original filenames.
@@ -18,6 +22,8 @@ Use Python 3.11 or later on Windows. Create a `playable` folder next to this REA
 2. [Freedoom 0.13.0](https://github.com/freedoom/freedoom/releases/download/v0.13.0/freedoom-0.13.0.zip)
 
 Run `python tools/embed.py` from the project folder. The script checks both archives against pinned SHA-256 hashes and writes `build/doom-hotkey.wh.cpp`.
+
+To check an existing generated file, run `python tools/embed.py --verify path/to/doom-hotkey.wh.cpp`. This unpacks each payload in memory and compares it byte for byte with the verified archives.
 
 To try the game before importing the mod, extract Crispy Doom into `playable/engine` and extract the Freedoom archive into `playable/game`. Run `Play Freedoom.cmd` to open Phase 1 fullscreen.
 
@@ -29,7 +35,7 @@ Use a Doom source port that supports the `-fullscreen` argument.
 
 The shortcut accepts Ctrl, Alt, Shift and Win modifiers followed by a letter, number or F1–F24. Windows reserves F12. If the new combination is unavailable, the previous one stays active. Windhawk's debug log shows invalid paths or shortcuts.
 
-The mod registers a Windows hotkey in Explorer. Doom runs in its own process and keeps running if the mod is disabled.
+The mod registers a Windows hotkey in a dedicated Windhawk process. Doom runs in its own process and keeps running if the mod is disabled.
 
 ## Credits
 
