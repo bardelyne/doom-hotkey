@@ -1,6 +1,6 @@
 # Third-party sources and licenses
 
-The one-file build includes the unmodified `crispy-doom.exe` and DLLs from the [Crispy Doom 7.2.0 Windows release](https://github.com/fabiangreffrath/crispy-doom/releases/tag/crispy-doom-7.2). See the [exact engine source and build scripts](https://github.com/fabiangreffrath/crispy-doom/tree/fdeabe4c23a833534b70aa84a22f1685aae7125d) and the [Windows build log](https://github.com/fabiangreffrath/crispy-doom/actions/runs/38230603065/job/114748843276). Crispy Doom is distributed under the [GNU GPL](LICENSE.md).
+When enabled, the mod downloads the unmodified archive from the [Crispy Doom 7.2.0 Windows release](https://github.com/fabiangreffrath/crispy-doom/releases/tag/crispy-doom-7.2). See the [exact engine source and build scripts](https://github.com/fabiangreffrath/crispy-doom/tree/fdeabe4c23a833534b70aa84a22f1685aae7125d) and the [Windows build log](https://github.com/fabiangreffrath/crispy-doom/actions/runs/38230603065/job/114748843276). Crispy Doom is distributed under the [GNU GPL](LICENSE.md).
 
 The two WAD files are from [Freedoom 0.13.0](https://github.com/freedoom/freedoom/tree/v0.13.0). See [Freedoom’s license and copyright notice](assets/Freedoom-COPYING.txt).
 
@@ -8,7 +8,7 @@ The two WAD files are from [Freedoom 0.13.0](https://github.com/freedoom/freedoo
 
 These are the matching MSYS2 UCRT64 package sources. The archives include the upstream code and MSYS2’s packaging files and patches. The [runtime license notices](assets/runtime-licenses) come from the matching packages or their upstream sources.
 
-| Bundled libraries | Source |
+| Downloaded libraries | Source |
 | --- | --- |
 | `SDL2.dll` | [SDL2 2.32.10-1](https://repo.msys2.org/mingw/sources/mingw-w64-SDL2-2.32.10-1.src.tar.zst) |
 | `SDL2_mixer.dll` | [SDL2_mixer 2.8.2-1](https://repo.msys2.org/mingw/sources/mingw-w64-SDL2_mixer-2.8.2-1.src.tar.zst) |
