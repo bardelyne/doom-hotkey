@@ -40,4 +40,4 @@ The mod registers a Windows hotkey in Explorer. Doom runs in its own process and
 
 ## Licenses
 
-The mod source and build tools use [GPL-2.0-or-later](LICENSE.md). The screenshot shows [Freedoom](assets/Freedoom-COPYING.txt). The build uses the original upstream release archives for Crispy Doom, its Windows libraries, and Freedoom.
+The mod source and build tools use [GPL-2.0-or-later](LICENSE.md). See [third-party sources and licenses](THIRD-PARTY.md) for the bundled engine, Windows libraries, and Freedoom.

@@ -13,6 +13,8 @@ CRISPY_ARCHIVE = "crispy-doom-7.2.0-win64.zip"
 FREEDOOM_ARCHIVE = "freedoom-0.13.0.zip"
 CRISPY_HASH = "c04feca63c00fd4c381c53cce8444a2bb520020be38368ce80da60484c94f2ab"
 FREEDOOM_HASH = "3f9b264f3e3ce503b4fb7f6bdcb1f419d93c7b546f4df3e874dd878db9688f59"
+# Windhawk limits source lines to 4096 characters, including indentation and quotes.
+ASSET_CHUNK_SIZE = 4088
 
 
 def checked_archive(name, expected):
@@ -44,7 +46,7 @@ def read_bundle():
             files[name] = data, campaign
         notice = archive.read("freedoom-0.13.0/COPYING.txt").decode("utf-8")
         files["Freedoom-COPYING.txt"] = notice.encode("utf-8"), 0
-    return files, notice
+    return files, notice.removeprefix("\ufeff")
 
 
 def compressor():
@@ -85,10 +87,9 @@ def write_assets(output, files):
         compressed = compress(cabinet, data)
         packed = base64.b64encode(compressed).decode("ascii")
         identifier = f"kAsset{index}"
-        # Keep individual string tokens comfortably below compiler limits.
         output.write(f"constexpr const char* {identifier}[] = {{\n")
-        for start in range(0, len(packed), 4096):
-            output.write(f'    "{packed[start:start + 4096]}",\n')
+        for start in range(0, len(packed), ASSET_CHUNK_SIZE):
+            output.write(f'    "{packed[start:start + ASSET_CHUNK_SIZE]}",\n')
         output.write("};\n")
         entries.append(
             f'    {{L"{name}", {campaign}, {len(data)}, {{{hex_bytes}}}, '
