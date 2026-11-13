@@ -6,7 +6,7 @@ A Windhawk mod that starts Doom fullscreen from anywhere with **Ctrl+Alt+Shift+D
 
 ## Play fullscreen
 
-The one-file build includes Crispy Doom 7.2.0 and both Freedoom campaigns. Import `build/doom-hotkey.wh.cpp` as a local mod in Windhawk on x64 Windows. Leave **Doom executable** and **Game WAD** blank, choose a campaign, and press the shortcut. On first launch, the mod extracts the engine and selected campaign to `%LOCALAPPDATA%\Windhawk Doom`. Subsequent launches reuse the verified files. The game starts fullscreen and runs offline.
+The one-file build includes Crispy Doom 7.2.0 and both Freedoom campaigns. Import `build/doom-hotkey.wh.cpp` as a local mod in Windhawk. Leave **Doom executable** and **Game WAD** blank, choose a campaign, and press the shortcut. On first launch, the mod extracts the engine and selected campaign to `%LOCALAPPDATA%\Windhawk Doom`. Subsequent launches reuse the verified files. The game starts fullscreen and runs offline. The bundled x64 engine runs on x64 Windows and uses x64 emulation on Windows 11 on Arm.
 
 Use **Game WAD** to play your own DOOM.WAD or DOOM2.WAD with the bundled engine. Freedoom provides the bundled levels, graphics, sounds, and music.
 
